@@ -73,7 +73,7 @@ public class CallByValueTest {
 		obj = null;
 	}
 
-	public void changeVO(TestVO vo) {
+	public void changeVO(TestVO vo) { // TestVO의 레퍼런스 변수를 복제하여 넘겨준다.
 		vo.setName("namkyu");
 		vo = null;
 	}

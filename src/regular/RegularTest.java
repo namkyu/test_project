@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import java.util.regex.Pattern;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -612,8 +613,14 @@ public class RegularTest {
 	}
 
 	@Test
+	@Ignore
 	public void 연속된값체크() {
-		String regex = "";
+	}
+
+	@Test
+	public void nonGroupingTest() {
+		String test = "abcd efg abcdabcd abcd abcd".replace("/(abcd) efg/", "$1 hif");
+		System.out.println(test);
 	}
 
 	/**
