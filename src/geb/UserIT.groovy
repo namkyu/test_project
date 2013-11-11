@@ -1,6 +1,7 @@
 package geb
 
-import spock.lang.Stepwise
+
+import geb.spock.GebSpec
 
 /**
  * @FileName : UserIT.groovy
@@ -9,22 +10,7 @@ import spock.lang.Stepwise
  * @작성자 : nklee
  * @프로그램설명 :
  */
-@Stepwise
-class UserIT {
+class UserIT extends GebSpec {
 
-	static void main(def args) {
-		Browser.drive {
-			go "http://myapp.com/login"
 
-			assert $("h1").text() == "Please Login"
-
-			$("form.login").with {
-				username = "admin"
-				password = "password"
-				login().click()
-			}
-
-			assert $("h1").text() == "Admin Section"
-	}
-}
 }
