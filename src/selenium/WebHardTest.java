@@ -32,7 +32,7 @@ public class WebHardTest {
 		driver.findElement(By.name("userid")).clear();
 		driver.findElement(By.name("userid")).sendKeys("nklee");
 		driver.findElement(By.name("password")).clear();
-		driver.findElement(By.name("password")).sendKeys("rbdn2001!nc");
+		driver.findElement(By.name("password")).sendKeys("1111");
 		driver.findElement(By.cssSelector("img[alt=\"로그인버튼\"]")).click();
 		driver.findElement(By.cssSelector("p > img")).click();
 

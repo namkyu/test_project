@@ -34,7 +34,7 @@ public class JavascriptExsample {
 		element.sendKeys("nklee");
 
 		WebElement password = driver.findElement(By.name("password"));
-		password.sendKeys("rbdn2001!nc");
+		password.sendKeys("1111");
 
 		if (driver instanceof JavascriptExecutor) {
 			((JavascriptExecutor) driver).executeScript("login();");
