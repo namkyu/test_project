@@ -26,11 +26,6 @@ public class ZipUtil {
 	/** Buffer Size */
 	private static final int BUFFER_SIZE = 1024 * 2;
 
-	public static void main(String[] args) throws Exception {
-//		ZipUtil.zip("E:\\test\\zip\\test_project", "E:\\test\\zip\\test_project.zip");
-//		ZipUtil.unzip("E:\\test\\zip\\test_project.zip", "E:\\test\\zip\\test_project");
-	}
-
 	/**
 	 * 압축 해제 압축 해제된 파일 목록을 List 반환
 	 *
@@ -150,7 +145,7 @@ public class ZipUtil {
 		try {
 			zi = new ZipArchiveInputStream(inputStream, null, true);
 			while ((entry = zi.getNextZipEntry()) != null) {
-				String fileNameToUnzip = new String(entry.getRawName(), "EUC-KR");
+				String fileNameToUnzip = new String(entry.getRawName(), "UTF-8");
 				File targetFile = new File(targetDir, fileNameToUnzip);
 
 				if (entry.isDirectory()) {// Directory
