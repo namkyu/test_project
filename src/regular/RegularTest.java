@@ -611,9 +611,30 @@ public class RegularTest {
 		assertThat(false, is(matched(regex, "@1")));
 	}
 
+	/**
+	 * <pre>
+	 * groupingTest
+	 * hello kyu world 문자열을 hello namkyu world 로 바꾸기
+	 * 간단하게 hello와 world를 그룹으로 지정하기 위해서 괄호로 묶어서 아래와 같이 처리
+	 * <pre>
+	 */
 	@Test
-	public void 연속된값체크() {
-		String regex = "";
+	public void groupingTest() {
+		String result = "hello kyu world".replaceAll("(hello) kyu (world)", "$1 namkyu $2");
+		assertThat("hello namkyu world", is(result));
+	}
+
+	/**
+	 * <pre>
+	 * nonGroupingTest
+	 * ?: <-- 이 문자열이 non grouping 문자
+	 * hello kyu world 문자열에서 양쪽의 hello, world를 삭제한 kyu만 출력
+	 * <pre>
+	 */
+	@Test
+	public void nonGroupingTest() {
+		String result = "hello kyu world".replaceAll("(?:hello) (kyu) (?:world)", "$1");
+		assertThat("kyu", is(result));
 	}
 
 	/**
