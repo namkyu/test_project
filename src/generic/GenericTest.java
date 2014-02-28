@@ -1,9 +1,7 @@
+package generic;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import generic.DataVO;
-import generic.Element;
-import generic.Type;
 
 import java.util.ArrayList;
 import java.util.List;
