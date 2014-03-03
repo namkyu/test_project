@@ -42,7 +42,7 @@ public class GenericMethodTest {
 	// ---------------------- 두 번째 방법 ---------------------------------
 
 	@SuppressWarnings("unchecked")
-	public <T> T getObj(String objKey, T type) {
+	public <T> T getObj(String objKey, Class<T> type) {
 		return (T) contextObjMap.get(objKey);
 	}
 
