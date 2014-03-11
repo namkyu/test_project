@@ -3,6 +3,10 @@ package json;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  * @FileName : User.java
  * @Project : test_project
@@ -10,45 +14,16 @@ import java.util.List;
  * @작성자 : 이남규
  * @프로그램설명 :
  */
+@Data
 public class User {
 
+	@JsonProperty("age_test")
 	private int age;
+
+	@JsonProperty("name_test")
 	private String name;
+
+	@JsonProperty("messages_test")
 	private List<String> messages = new ArrayList<String>();
-	/**
-	 * @return the age
-	 */
-	public int getAge() {
-		return age;
-	}
-	/**
-	 * @param age the age to set
-	 */
-	public void setAge(int age) {
-		this.age = age;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**
-	 * @return the messages
-	 */
-	public List<String> getMessages() {
-		return messages;
-	}
-	/**
-	 * @param messages the messages to set
-	 */
-	public void setMessages(List<String> messages) {
-		this.messages = messages;
-	}
+
 }

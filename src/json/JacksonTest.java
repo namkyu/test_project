@@ -41,6 +41,7 @@ public class JacksonTest {
 	private String jsonListTestFilePath;
 	private String jsonMapTestFilePath;
 	private String jsonFactoryTestFilePath;
+	private String jsonTestFilePath;
 	private Map<String, Object> userInMap;
 
 	/**
@@ -54,6 +55,7 @@ public class JacksonTest {
 		jsonListTestFilePath = "E:\\test\\json\\listTest.json";
 		jsonMapTestFilePath = "E:\\test\\json\\mapTest.json";
 		jsonFactoryTestFilePath = "E:\\test\\json\\factoryTest.json";
+		jsonTestFilePath = "E:\\test\\json\\test.json";
 
 		user = new User();
 		user.setAge(32);
@@ -119,10 +121,10 @@ public class JacksonTest {
 	@Test
 	public void JSON포멧의파일을VO객체로변환() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		User user = mapper.readValue(new File(jsonListTestFilePath), User.class);
+		User user = mapper.readValue(new File(jsonTestFilePath), User.class);
 
-		assertThat(32, is(user.getAge()));
-		assertThat("kyu", is(user.getName()));
+		mapper.configure(org.codehaus.jackson.map.SerializationConfig.Feature.USE_ANNOTATIONS, false);
+		System.out.println(mapper.defaultPrettyPrintingWriter().writeValueAsString(user));
 	}
 
 	/**
