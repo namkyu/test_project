@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.DeserializationConfig.Feature;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -40,15 +39,18 @@ public class JSONStrategyTest {
 		BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)));
 		System.out.println("##json## " + reader.readLine());
 
-		// gate -> api
+		// configure
+		// Serialization이 object -> json 변환
+		// Deserialization이 json -> object 변환
+		mapper.configure(org.codehaus.jackson.map.SerializationConfig.Feature.USE_ANNOTATIONS, false);
 		mapper.configure(org.codehaus.jackson.map.DeserializationConfig.Feature.USE_ANNOTATIONS, true);
-		mapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(org.codehaus.jackson.map.DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+		// gate -> api
 		UserInfo user = mapper.readValue(new File(filePath), UserInfo.class);
 		System.out.println("##read## " + user);
 
 		// api -> front
-		mapper.configure(org.codehaus.jackson.map.SerializationConfig.Feature.USE_ANNOTATIONS, false);
 		String jsonResult = mapper.writeValueAsString(user);
 		System.out.println("##write## " + jsonResult);
 	}
