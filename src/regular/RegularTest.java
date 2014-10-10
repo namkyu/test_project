@@ -611,6 +611,14 @@ public class RegularTest {
 		assertThat(false, is(matched(regex, "@1")));
 	}
 
+	@Test
+	public void replaceAllRegex() {
+		String testStr = "[오전 12:03:28] ♥?♥ Jiselle ♥?♥: it's her day off";
+		String result = testStr.replaceAll("^\\[(\\S|\\s)*\\:\\s*", "");
+		System.out.println(result);
+		assertThat("it's her day off", is(result));
+	}
+
 	/**
 	 * <pre>
 	 * groupingTest

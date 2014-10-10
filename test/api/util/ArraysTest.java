@@ -110,6 +110,14 @@ public class ArraysTest {
 		assertThat(strArr[2], is("1"));
 	}
 
+	@Test
+	public void printmultipleArray() {
+		String[][] phones = {{"apple1", "apple2"}, {"galaxy1", "galaxy2"}};
+		System.out.println(phones); // print type
+		System.out.println(Arrays.toString(phones)); // print type
+		System.out.println(Arrays.deepToString(phones)); // print data
+	}
+
 	class ArraysTestObj implements Comparable<String> {
 		private String name;
 
@@ -130,5 +138,6 @@ public class ArraysTest {
 			return name.compareTo(str);
 		}
 	}
+
 
 }

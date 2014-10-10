@@ -17,7 +17,7 @@
 		</repository>
 		<repository>
 			<id>releases</id>
-			<url>http://kyuwoo82.com:8081/nexus/content/repositories/releases</url>
+			<url>http://lnk1982.cafe24.com:8081/nexus/content/repositories/releases</url>
 		</repository>
 	</repositories>
 
@@ -157,6 +157,12 @@
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>3.7.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.6.0</version>
 		</dependency>
 
 	</dependencies>
