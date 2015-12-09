@@ -1,8 +1,12 @@
 package date;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
 
 /**
  * @FileName : DifferenceOfDate.java
@@ -17,13 +21,37 @@ public class DifferenceOfDate {
 		DifferenceOfDate differenceOfDate = new DifferenceOfDate();
 
 		// 첫 번째 방법
-		int differenceDate = differenceOfDate.getDifferenceOfDate("20120614", "20120618");
+		int differenceDate = differenceOfDate.getDifferenceOfDate("20130819", "20151126");
 		System.out.println("differenceDate : " + differenceDate);
 
-		// 두 번째 방법
-		int getDiffDate = differenceOfDate.getDiffDate("20120614", "20120618");
-		System.out.println("getDiffDate : " + getDiffDate);
 
+		// 두 번째 방법
+		int getDiffDate = differenceOfDate.getDiffDate("20061201", "20071225");
+		System.out.println("getDiffDate : " + getDiffDate);
+	}
+
+	@Test
+	public void diffDateTest() throws Exception {
+		DifferenceOfDate differenceOfDate = new DifferenceOfDate();
+		List<Integer> list = new ArrayList<>();
+
+		list.add(differenceOfDate.getDiffDate("20130819", "20151126"));
+		list.add(differenceOfDate.getDiffDate("20120101", "20130817"));
+		list.add(differenceOfDate.getDiffDate("20090113", "20120101"));
+		list.add(differenceOfDate.getDiffDate("20080407", "20081206"));
+		list.add(differenceOfDate.getDiffDate("20080224", "20080407"));
+		list.add(differenceOfDate.getDiffDate("20080103", "20080224"));
+		list.add(differenceOfDate.getDiffDate("20071225", "20080103"));
+		list.add(differenceOfDate.getDiffDate("20061201", "20071225"));
+
+		int total = 0;
+		for (Integer result : list) {
+			System.out.println(result);
+			total += result;
+		}
+
+		System.out.println("total : " + total);
+		System.out.println(total / 365 + "years " + total % 365 + "days");
 	}
 
 	/**

@@ -4,6 +4,8 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -34,7 +36,8 @@ public class RecursiveTest {
 		int totalCnt = 0;
 		String[] fileList = file.list();
 		for (String childFile : fileList) {
-			totalCnt += recursiveFile(new File(file, childFile));
+			File childFilePath = new File(file, childFile);
+			totalCnt += recursiveFile(childFilePath);
 		}
 
 		return totalCnt;
@@ -42,6 +45,39 @@ public class RecursiveTest {
 
 	@Test
 	public void test() {
-		assertThat(3, is(recursiveFile(new File("E:\\test\\recursive"))));
+		assertThat(5, is(recursiveFile(new File("E:\\test\\build"))));
+	}
+
+
+	@Test
+	public void test2() {
+		List<String> fileList = new ArrayList<>();
+		fileList = recursiveTest2(fileList, new File("E:\\test\\build"));
+		System.out.println(fileList);
+	}
+
+	/**
+	 * <pre>
+	 * recursiveTest2
+	 *
+	 * <pre>
+	 * @param fileList
+	 * @param file
+	 * @return
+	 */
+	private List<String> recursiveTest2(List<String> fileList, File file) {
+
+		if (file.isFile()) {
+			fileList.add(file.getName());
+			return fileList;
+		}
+
+		String[] fileArr = file.list();
+		for (String childFile : fileArr) {
+			File subFile = new File(file, childFile);
+			recursiveTest2(fileList, subFile);
+		}
+
+		return fileList;
 	}
 }

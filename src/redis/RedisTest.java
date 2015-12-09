@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Response;
+import redis.clients.jedis.Transaction;
 
 /**
  * @FileName : RedisTest.java
@@ -58,7 +60,24 @@ public class RedisTest {
 		while (iterator.hasNext()) {
 			System.out.println("List of stored keys : " + iterator.next());
 		}
+	}
 
+	@Test
+	public void transactionTest() {
+		Transaction t = jedis.multi();
+		t.set("fool", "bar");
+		Response<String> result1 = t.get("fool");
+
+		t.zadd("foo", 1, "barowitch");
+		t.zadd("foo", 0, "barinsky");
+		t.zadd("foo", 0, "barikoviev");
+		Response<Set<String>> sose = t.zrange("foo", 0, -1);
+		t.exec();
+
+		String foolbar = result1.get();
+		int soseSize = sose.get().size();
+		System.out.println(foolbar);
+		System.out.println(soseSize);
 	}
 
 }

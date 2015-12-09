@@ -59,7 +59,7 @@ public class SqliteTest {
 	 */
 	private Connection getConnection() throws SQLException {
 		SQLiteDataSource dataSource = new SQLiteDataSource();
-		dataSource.setUrl("jdbc:sqlite:test.db");
+		dataSource.setUrl("jdbc:sqlite:E:\\test\\sqlite\\test.db");
 		Connection conn = dataSource.getConnection();
 		return conn;
 	}
