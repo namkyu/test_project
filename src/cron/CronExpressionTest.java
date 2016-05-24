@@ -16,6 +16,7 @@ public class CronExpressionTest {
 
 	@Test
 	public void cronTimeTest() throws ParseException {
+		// 매일 9, 12, 18시 정각에 스케줄링 동작
 		String cronEx = "0 0 9,12,18 * * ?";
 		CronExpression cronExpression = new CronExpression(cronEx);
 
@@ -28,5 +29,13 @@ public class CronExpressionTest {
 		System.out.println(nextTime2);
 		System.out.println(nextTime3);
 		System.out.println(nextTime4);
+	}
+
+	@Test
+	public void 타임테스트() throws ParseException {
+		CronExpression cronExpression = new CronExpression("0 0 13 * * ?");
+		Date result = cronExpression.getNextValidTimeAfter(new Date());
+		System.out.println(result);
+
 	}
 }
