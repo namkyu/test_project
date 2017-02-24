@@ -19,6 +19,11 @@
 			<id>releases</id>
 			<url>http://lnk1982.cafe24.com:8081/nexus/content/repositories/releases</url>
 		</repository>
+		<repository>
+			<id>paho-mqtt-client</id>
+			<name>Paho MQTT Client</name>
+			<url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -270,6 +275,12 @@
 			<groupId>org.ow2.asm</groupId>
 			<artifactId>asm-all</artifactId>
 			<version>5.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.paho</groupId>
+			<artifactId>mqtt-client</artifactId>
+			<version>0.4.0</version>
 		</dependency>
 
 	</dependencies>

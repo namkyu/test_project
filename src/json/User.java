@@ -26,4 +26,6 @@ public class User {
 	@JsonProperty("messages_test")
 	private List<String> messages = new ArrayList<String>();
 
+	@JsonProperty("testClass")
+	private TestClass testClass;
 }

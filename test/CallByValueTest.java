@@ -31,6 +31,14 @@ public class CallByValueTest {
 		int cnt = 1;
 		changeObject(cnt);
 		assertThat(cnt, is(cnt)); // call by value (1 == 1)
+
+		String[] strArr = {"1", "2"};
+		chageArr(strArr);
+		assertThat("3", is(strArr[1])); // call by value
+	}
+
+	public static void chageArr(String[] strArr) {
+		strArr[1] = "3";
 	}
 
 	/**
@@ -73,7 +81,7 @@ public class CallByValueTest {
 		obj = null;
 	}
 
-	public void changeVO(TestVO vo) { // TestVO의 레퍼런스 변수를 복제하여 넘겨준다.
+	public void changeVO(TestVO vo) { // TestVO의 레퍼런스 변수의 값을 복제해서 넘겨준다.
 		vo.setName("namkyu");
 		vo = null;
 	}
