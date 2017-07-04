@@ -1,13 +1,13 @@
 package anno;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 /**
  * @FileName : NullAnnotation.java
@@ -18,20 +18,20 @@ import com.sun.istack.internal.Nullable;
  */
 public class NullAnnotation {
 
-	@NotNull
-	private String name;
+    @NotNull
+    private String name;
 
-	@Nullable
-	private String middleName;
+    @Nullable
+    private String middleName;
 
-	@Before
-	public void before() {
-		name = "kyu";
-	}
+    @Before
+    public void before() {
+        name = "kyu";
+    }
 
-	@Test
-	public void nullTest() {
-		assertThat("kyu", is(name));
-		assertThat(middleName, nullValue());
-	}
+    @Test
+    public void nullTest() {
+        assertThat("kyu", is(name));
+        assertThat(middleName, nullValue());
+    }
 }
